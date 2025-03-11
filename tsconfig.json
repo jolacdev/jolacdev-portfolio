@@ -1,27 +1,38 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
+    /* Compiler & Bundler */
+    // NOTE(`target`): For example, an arrow function `() => {}` will compile to `function {}` if target is ES5 or lower.
+    "target": "esnext", // Changes how JS features are compiled. The `esnext`value supports the latest ECMAScript specification.
+    "noEmit": true, // Allows the bundler to handle the output. Use TypeScript only for type checking.
+    "isolatedModules": true, // Warns when certain TS code cannot be correctly interpreted by single-file transpiler.
+    "jsx": "preserve", // Keeps the JSX code as part of the output to be further consumed by another transform step and uses `.jsx` file extension.
+    "resolveJsonModule": true, // Allows importing JSON files as modules.
+    "skipLibCheck": true, // Speeds up compilation by skipping type checks in dependency `.d.ts` files, validating only the types actually used.
+    "incremental": true, // Makes compilation faster by caching (in files that can be safely deleted) the results of the type checking.
+
+    /* Type Checking & Linting */
+    "strict": true, // Strict type checking
+    "lib": ["dom", "dom.iterable", "esnext"], // Defines available TypeScript built-in `d.ts` files to be used in the project.
+
+    /* Module Resolution */
+    // NOTE(`module`): Regardless of `noEmit` the compiler needs `module` to understand the module system to type check (and provide IntelliSense) imports.
+    "module": "esnext", // Controls the module format of any JS emitted during compilation. The `esnext`value supports the latest ECMAScript specification.
+    "esModuleInterop": true, // Enables better interoperability between ES Modules and CommonJS when importing modules.
+    "moduleResolution": "bundler", // For use with bundlers. Supports dependencies `import` and `export` and does not require file extensions.
+    "allowJs": true, // Allows JavaScript files to be imported in the project.
+
+    /* Plugins */
     "plugins": [
       {
-        "name": "next"
+        "name": "next" // Next.js included plugin for linting invalid values/uses of Route Segment Config, `use client`, client hooks, etc.
       }
     ],
+
+    /* Aliases */
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"] // Defines (`@/*`) alias to point (`./src/*`) for cleaner imports.
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"], // Included in compilation
+  "exclude": ["node_modules"] // Excluded from compilation
 }
