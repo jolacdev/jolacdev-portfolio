@@ -12,6 +12,9 @@
 
     /* Type Checking & Linting */
     "strict": true, // Strict type checking
+    "noUnusedLocals": false, // Handled by `@typescript-eslint/no-unused-vars`.
+    "noUnusedParameters": true, // Enforces the use of all function parameters.
+    "noFallthroughCasesInSwitch": true, // Enforces using 'break' between switch cases.
     "lib": ["dom", "dom.iterable", "esnext"], // Defines available TypeScript built-in `d.ts` files to be used in the project.
 
     /* Module Resolution */
