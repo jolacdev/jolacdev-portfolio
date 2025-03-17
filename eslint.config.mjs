@@ -43,7 +43,7 @@ export default [
 
   // GLOBAL IGNORES: Added in a separate object to apply globally and be able to match directories. Only global `ignores` can match directories.
   {
-    ignores: ['dist', 'build'], // Ignore build directories
+    ignores: ['dist', 'build', '.next', 'node_modules'], // Ignore auto-generated directories
   },
 
   // SETTINGS: Detect React version automatically for `eslint-plugin-react` rules.
