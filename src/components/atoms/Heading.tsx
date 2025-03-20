@@ -9,12 +9,12 @@ const Heading = ({ children, className = '', type, ...rest }: HeadingProps) => {
   const Tag = type;
 
   const headingStyles = {
-    h1: 'text-4xl font-extrabold',
-    h2: 'text-3xl font-bold',
-    h3: 'text-2xl font-semibold',
-    h4: 'text-xl font-semibold',
-    h5: 'text-lg font-medium',
-    h6: 'text-base font-medium',
+    h1: 'text-5xl font-extrabold mt-8 mb-8',
+    h2: 'text-3xl font-bold mt-8 mb-6',
+    h3: 'text-2xl font-semibold mt-6 mb-3',
+    h4: 'text-xl font-semibold mt-6 mb-3',
+    h5: 'text-lg font-medium mt-4 mb-2',
+    h6: 'text-base font-medium mt-4 mb-2',
   };
   // Get the appropriate class for the specific heading type
   const classNames = headingStyles[type];

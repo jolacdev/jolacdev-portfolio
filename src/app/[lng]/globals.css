@@ -14,6 +14,7 @@ https://tailwindcss.com/docs/preflight
   :root {
     --background: #2a2d34;
     --foreground: #ededed;
+    --color-primary: #ffa770;
   }
 }
 
@@ -21,8 +22,8 @@ https://tailwindcss.com/docs/preflight
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-nova-mono);
-  --font-sans: var(--font-nova-mono), ui-sans-serif;
+  --color-primary: var(--color-primary);
+  --font-sans: var(--font-nova-mono), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-nova-mono), ui-monospace;
 }
 

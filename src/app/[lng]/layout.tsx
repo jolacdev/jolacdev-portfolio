@@ -1,6 +1,9 @@
+import { dir } from 'i18next';
 import type { Metadata } from 'next';
 import { Nova_Mono, Poppins } from 'next/font/google';
 import { ReactNode } from 'react';
+
+import { languages } from '../i18n/settings';
 
 import './globals.css';
 
@@ -22,17 +25,26 @@ export const metadata: Metadata = {
     'Frontend developer building performant web apps focused on React and Next.js.',
 };
 
-const RootLayout = ({
+export async function generateStaticParams() {
+  return languages.map((lng) => ({ lng }));
+}
+
+const RootLayout = async ({
   children,
+  params,
 }: Readonly<{
   children: ReactNode;
-}>) => (
-  <html lang="en">
-    {/* NOTE: Tailwind utility class `antialiased` for smoothing font rendering. */}
-    <body className={`${poppins.variable} ${novaMono.variable} antialiased`}>
-      {children}
-    </body>
-  </html>
-);
+  params: Promise<{ lng: string }>;
+}>) => {
+  const { lng } = await params;
+  return (
+    <html dir={dir(lng)} lang={lng}>
+      {/* NOTE: Tailwind utility class `antialiased` for smoothing font rendering. */}
+      <body className={`${poppins.variable} ${novaMono.variable} antialiased`}>
+        {children}
+      </body>
+    </html>
+  );
+};
 
 export default RootLayout;
