@@ -223,6 +223,7 @@ export default [
       // IMPORTS ORDER: Enforces a strict and consistent order for import statements.
       // NOTE: 🚨 Disable `source.organizeImports` on `codeActionsOnSave` in VSCode Settings to avoid conflicts. 🚨
       'sort/imports': 0, // Note: Disable ESLint's rule to avoid conflicts.
+      'import/newline-after-import': 2, // Enforces newline after last import statement.
       'perfectionist/sort-imports': [
         2,
         {

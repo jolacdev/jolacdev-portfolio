@@ -1,5 +1,7 @@
-import Heading from '../../components/atoms/Heading';
+import Heading from '@/components/atoms/Heading';
+
 import { createTranslation } from '../i18n';
+
 const Home = async ({ params }: { params: Promise<{ lng: string }> }) => {
   const { lng } = await params;
   const { t } = await createTranslation(lng);

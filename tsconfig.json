@@ -33,7 +33,7 @@
 
     /* Aliases */
     "paths": {
-      "@/*": ["./src/*"] // Defines (`@/*`) alias to point (`./src/*`) for cleaner imports.
+      "@/*": ["./src/*"] // Generic src (`@/*`) alias for cleaner imports. E.g. /src/components/Component > @/components/Component
     }
   },
   "include": [
