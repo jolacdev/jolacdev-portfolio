@@ -1,11 +1,13 @@
 import Heading from '../../components/atoms/Heading';
 import { createTranslation } from '../i18n';
-const Home = async ({ params: { lng } }) => {
+const Home = async ({ params }: { params: Promise<{ lng: string }> }) => {
+  const { lng } = await params;
   const { t } = await createTranslation(lng);
 
   return (
     <div className="mx-auto max-w-5xl">
       <main>
+        {/* TODO: Remove */}
         <p>{t('test')}</p>
         <Heading type="h1">Hello 👋, I&apos;m Jose L.</Heading>
         <p className="mb-2">

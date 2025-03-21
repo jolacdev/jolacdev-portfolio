@@ -3,46 +3,83 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import { cookieName, fallbackLng, languages } from './app/i18n/settings';
 
+// Refer to: https://nextjs.org/docs/pages/building-your-application/routing/middleware
+
 acceptLanguage.languages(languages);
 
+// Apply middleware to all routes EXCEPT:
+// - API routes (/api/*)
+// - Next.js internal files (/static, /image)
+// - Public assets (e.g., /favicon.ico, /sw.js, /site.webmanifest)
 export const config = {
-  // matcher: '/:lng*'
   matcher: [
     '/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js|site.webmanifest).*)',
   ],
 };
 
-export function middleware(request: NextRequest) {
-  let lng;
-  if (request.cookies.has(cookieName)) {
-    lng = acceptLanguage.get(request.cookies.get(cookieName)!.value); // TODO: Check exclamation mark
-  }
-  if (!lng) {
-    lng = acceptLanguage.get(request.headers.get('Accept-Language'));
-  }
-  if (!lng) {
-    lng = fallbackLng;
+const getLanguage = (request: NextRequest) => {
+  // Preferred language from the cookies.
+  const cookieValue = request.cookies.get(cookieName)?.value;
+  const cookieLng = cookieValue && acceptLanguage.get(cookieValue);
+  if (cookieLng) {
+    return cookieLng;
   }
 
-  // Redirect if lng in path is not supported
-  if (
-    !languages.some((loc) => request.nextUrl.pathname.startsWith(`/${loc}`)) &&
-    !request.nextUrl.pathname.startsWith('/_next')
-  ) {
+  // Preferred language from the user's browser language.
+  const browserAcceptLanguage = request.headers.get('Accept-Language');
+  const browserLng =
+    browserAcceptLanguage && acceptLanguage.get(browserAcceptLanguage);
+  if (browserLng) {
+    return browserLng;
+  }
+
+  return fallbackLng;
+};
+
+const shouldRedirect = (request: NextRequest) => {
+  // Check if request pathname starts with a supported language.
+  const isPathLanguageSupported = languages.some((lng) =>
+    request.nextUrl.pathname.startsWith(`/${lng}`),
+  );
+
+  // Check if the request pathname is an internal path. For example, Next.js assets.
+  const isInternalPath = request.nextUrl.pathname.startsWith('/_next');
+
+  return !isPathLanguageSupported && !isInternalPath;
+};
+
+const getRefererLanguage = (request: NextRequest) => {
+  const referer = request.headers.get('referer');
+
+  if (!referer) {
+    return null;
+  }
+
+  const url = new URL(referer);
+  const refererLanguage = languages.find((lng) =>
+    url.pathname.startsWith(`/${lng}`),
+  );
+
+  return refererLanguage || null;
+};
+
+export function middleware(request: NextRequest) {
+  const language = getLanguage(request);
+
+  if (shouldRedirect(request)) {
     return NextResponse.redirect(
-      new URL(`/${lng}${request.nextUrl.pathname}`, request.url),
+      new URL(`/${language}${request.nextUrl.pathname}`, request.url),
     );
   }
 
   if (request.headers.has('referer')) {
-    const refererUrl = new URL(request.headers.get('referer') || ''); // TODO: Check fallback
-    const lngInReferer = languages.find((l) =>
-      refererUrl.pathname.startsWith(`/${l}`),
-    );
     const response = NextResponse.next();
-    if (lngInReferer) {
-      response.cookies.set(cookieName, lngInReferer);
+    const refererLanguage = getRefererLanguage(request);
+
+    if (refererLanguage) {
+      response.cookies.set(cookieName, refererLanguage);
     }
+
     return response;
   }
 
