@@ -7,6 +7,7 @@ import { getOptions } from './settings';
 
 const initI18next = async (lng: string, ns?: string) => {
   const i18nInstance = createInstance();
+
   await i18nInstance
     .use(initReactI18next)
     .use(
@@ -16,6 +17,7 @@ const initI18next = async (lng: string, ns?: string) => {
       ),
     )
     .init(getOptions(lng, ns));
+
   return i18nInstance;
 };
 

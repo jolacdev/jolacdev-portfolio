@@ -1,5 +1,3 @@
-import { useTranslation } from 'react-i18next';
-
 import Heading from '../../components/atoms/Heading';
 import { createTranslation } from '../i18n';
 const Home = async ({ params: { lng } }) => {
