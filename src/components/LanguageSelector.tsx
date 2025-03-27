@@ -12,22 +12,34 @@ export const LanguageSelector = async ({ lng }: { lng: string }) => {
   const languagesToChoose = SUPPORTED_LANGUAGES.filter(
     (language) => lng !== language,
   );
+
+  // TODO: Check https://simplelocalize.io/blog/posts/create-language-selector-with-nextjs-and-tailwind/
+  const isOpen = true; // TODO: Temp
+
   return (
-    <div>
-      <Trans
-        components={{ 1: <strong /> }}
-        i18nKey="languageSwitcher"
-        t={t}
-        values={{ lng: lng?.toUpperCase() }}
-      />
-      <Chevron />
-      <Image alt="uk flag" height={20} src={enIcon} unoptimized width={20} />
-      {languagesToChoose.map((language, index) => (
-        <span key={language}>
-          {index > 0 && ' or '}
-          <Link href={`/${language}`}>{language.toUpperCase()}</Link>
-        </span>
-      ))}
-    </div>
+    <>
+      <button
+        onClick={() => {
+          // eslint-disable-next-line no-console
+          console.log(isOpen);
+        }}
+      ></button>
+      <div>
+        <Trans
+          components={{ 1: <strong /> }}
+          i18nKey="languageSwitcher"
+          t={t}
+          values={{ lng: lng?.toUpperCase() }}
+        />
+        <Chevron />
+        <Image alt="uk flag" height={20} src={enIcon} unoptimized width={20} />
+        {languagesToChoose.map((language, index) => (
+          <span key={language}>
+            {index > 0 && ' or '}
+            <Link href={`/${language}`}>{language.toUpperCase()}</Link>
+          </span>
+        ))}
+      </div>
+    </>
   );
 };
