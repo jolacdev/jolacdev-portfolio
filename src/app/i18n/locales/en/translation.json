@@ -1,0 +1,10 @@
+{
+  "home": {
+    "greeting": "Hello 👋, I'm Jose L.",
+    "intro": "I'm a web developer with a passion for creating modern, responsive, and intuitive web applications.",
+    "specialization": "I specialize in React, Next.js, and JavaScript, and I enjoy bringing ideas to life through clean, efficient code."
+  },
+  "temporal": {
+    "counter": "counter is {{count}}"
+  }
+}

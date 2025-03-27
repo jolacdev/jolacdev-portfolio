@@ -1,0 +1,51 @@
+@import 'tailwindcss';
+
+/*
+NOTE: Tailwind import comes with preflight styles designed to smooth over cross-browser inconsistencies 
+https://tailwindcss.com/docs/preflight
+*/
+
+:root {
+  --background: #ffffff;
+  --foreground: #2a2d34;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #2a2d34;
+    --foreground: #ededed;
+    --color-primary: #ffa770;
+  }
+}
+
+/* NOTE: Theme variables instruct Tailwind to create new utility classes that can be used in the HTML */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--color-primary);
+  --font-sans: var(--font-nova-mono), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-nova-mono), ui-monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+  }
+
+  /* h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-nova-mono), ui-monospace;
+  } */
+}
+
+/* body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-poppins), ui-sans-serif;
+} */
