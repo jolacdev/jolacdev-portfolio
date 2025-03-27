@@ -33,9 +33,15 @@
 
     /* Aliases */
     "paths": {
-      "@/*": ["./src/*"] // Defines (`@/*`) alias to point (`./src/*`) for cleaner imports.
+      "@/*": ["./src/*"] // Generic src (`@/*`) alias for cleaner imports. E.g. /src/components/Component > @/components/Component
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"], // Included in compilation
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    ".next/types/**/*.ts"
+  ], // Included in compilation
   "exclude": ["node_modules"] // Excluded from compilation
 }
