@@ -14,6 +14,7 @@ export const LanguageSelector = async ({ lng }: { lng: string }) => {
   );
 
   // TODO: Check https://simplelocalize.io/blog/posts/create-language-selector-with-nextjs-and-tailwind/
+  // https://codepen.io/ferhatatagun/pen/oNNGdyX
   const isOpen = true; // TODO: Temp
 
   return (
