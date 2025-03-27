@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jose L. Portfolio
 
-## Getting Started
+## Setup
 
-First, run the development server:
+## Setup Workspace Settings
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Select TypeScript Version
+
+Next.js enforces specific TypeScript rules that require using the workspace's TypeScript version.
+
+- Command Palette (`Cmd + Shift + P` / `Ctrl + Shift + P`) > `TypeScript: Select TypeScript Version...` > `Use Workspace Version`
+
+### Disable Default Auto-Organizing Imports
+
+Perfectionist ESLint rules enforce a consistent import order. To avoid conflicts with the import sorting of VSCode, add the following to your settings:
+
+`.vscode\settings.json`
+
+```json
+"editor.codeActionsOnSave": {
+    "source.organizeImports": "never"
+  },
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Setup Debugger
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Configure VSCode to debug both the **server** and **client** of a Next.js application.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+For more details, refer to the official Next.js debugging documentation: [Next.js Debugging Docs](https://nextjs.org/docs/app/building-your-application/configuring/debugging)
 
-## Learn More
+`.vscode/launch.json`
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Next.js: debug server-side",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev"
+    },
+    {
+      "name": "Next.js: debug client-side",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000"
+    },
+    {
+      "name": "Next.js: debug client-side (Firefox)",
+      "type": "firefox",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "reAttach": true,
+      "pathMappings": [
+        {
+          "url": "webpack://_N_E",
+          "path": "${workspaceFolder}"
+        }
+      ]
+    },
+    {
+      "name": "Next.js: debug full stack",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/next",
+      "runtimeArgs": ["--inspect"],
+      "skipFiles": ["<node_internals>/**"],
+      "serverReadyAction": {
+        "action": "debugWithChrome",
+        "killOnServerStop": true,
+        "pattern": "- Local:.+(https?://.+)",
+        "uriFormat": "%s",
+        "webRoot": "${workspaceFolder}"
+      }
+    }
+  ]
+}
+```
