@@ -1,5 +1,10 @@
 # Jose L. Portfolio
 
+## Ideas
+
+- https://www.darkmodedesign.com/?2bf851fe_page=7
+- https://www.hyresearch.com/
+
 ## Setup
 
 ## Setup Workspace Settings
