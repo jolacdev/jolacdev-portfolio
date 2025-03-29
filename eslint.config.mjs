@@ -204,6 +204,7 @@ export default [
         2,
         {
           custom: 'ignore',
+          exceptions: ['svg'],
         },
       ],
 

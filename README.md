@@ -5,6 +5,18 @@
 - https://www.darkmodedesign.com/?2bf851fe_page=7
 - https://www.hyresearch.com/
 
+## Resources
+
+### React
+
+- **Guides**: https://www.robinwieruch.de/
+- **Components**: https://ariakit.org/
+- **HTML5 Tailwind Components**: https://daisyui.com/components/dropdown/
+
+### SVG Components
+
+- https://opensourcesvgicons.com
+
 ## Setup
 
 ## Setup Workspace Settings
