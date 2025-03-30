@@ -1,5 +1,6 @@
+import Button from '@/components/atoms/Button';
+import Dropdown from '@/components/atoms/Dropdown';
 import Heading from '@/components/atoms/Heading';
-import Selector from '@/components/atoms/Selector';
 import { LanguageSelector } from '@/components/LanguageSelector';
 
 import { createTranslation } from '../i18n';
@@ -15,7 +16,8 @@ const Home = async ({ params }: { params: Promise<{ lng: string }> }) => {
       <main>
         {/* TODO: Remove */}
         <Heading type="h1">{t('greeting')}</Heading>
-        <Selector />
+        <Button></Button>
+        <Dropdown />
         <p className="mb-2">{t('intro')}</p>
         <p>{t('specialization')}</p>
         <input className="accent-primary" type="checkbox" />

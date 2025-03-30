@@ -1,6 +1,6 @@
 import { SUPPORTED_LANGUAGES } from '@/app/i18n/settings';
 import { useTranslation } from '@/app/i18n/useTranslation';
-import Chevron from '@/icons/Chevron';
+import { ChevronUp } from '@/icons/ChevronUp';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Trans } from 'react-i18next/TransWithoutContext';
@@ -21,7 +21,7 @@ export const LanguageSelectorClient = ({ lng }: { lng: string }) => {
         t={t}
         values={{ lng: lng?.toUpperCase() }}
       />
-      <Chevron />
+      <ChevronUp />
       <Image
         alt="uk flag"
         className="mr-8"

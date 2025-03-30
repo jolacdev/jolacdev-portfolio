@@ -1,6 +1,6 @@
 import { createTranslation } from '@/app/i18n';
 import { SUPPORTED_LANGUAGES } from '@/app/i18n/settings';
-import Chevron from '@/icons/Chevron';
+import { ChevronUp } from '@/icons/ChevronUp';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Trans } from 'react-i18next/TransWithoutContext';
@@ -32,7 +32,7 @@ export const LanguageSelector = async ({ lng }: { lng: string }) => {
           t={t}
           values={{ lng: lng?.toUpperCase() }}
         />
-        <Chevron />
+        <ChevronUp />
         <Image alt="uk flag" height={20} src={enIcon} unoptimized width={20} />
         {languagesToChoose.map((language, index) => (
           <span key={language}>
