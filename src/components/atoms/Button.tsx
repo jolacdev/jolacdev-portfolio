@@ -1,3 +1,4 @@
+'use client';
 import cx from 'classnames';
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 
@@ -17,11 +18,11 @@ const Button = ({ children, className, ...props }: ButtonProps) => {
   return (
     <button
       className={cx(
-        'bg-background-950 m-4 inline-flex h-9 items-center justify-center rounded-sm px-4',
-        'border-background-800 border-1',
-        'hover:bg-background-900 hover:cursor-pointer',
-        'active:bg-background-700',
-        'focus-visible:outline-primary focus-visible:outline-2',
+        'bg-background-950 border-background-800 m-4 inline-flex h-9 items-center justify-center rounded-sm border-1 px-4',
+        'hover:not-disabled:cursor-pointer hover:not-disabled:brightness-105',
+        'focus:brightness-105',
+        'active:not-disabled:brightness-110',
+        'disabled:opacity-50 disabled:hover:cursor-default',
         className,
       )}
       // eslint-disable-next-line react/jsx-props-no-spreading

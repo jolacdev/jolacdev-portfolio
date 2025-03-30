@@ -16,7 +16,10 @@ const Home = async ({ params }: { params: Promise<{ lng: string }> }) => {
       <main>
         {/* TODO: Remove */}
         <Heading type="h1">{t('greeting')}</Heading>
-        <Button></Button>
+        <Button>Text</Button>
+        <Button className="bg-red-800">Text</Button>
+        <Button className="bg-white text-black">Text</Button>
+        <Button disabled></Button>
         <Dropdown />
         <p className="mb-2">{t('intro')}</p>
         <p>{t('specialization')}</p>

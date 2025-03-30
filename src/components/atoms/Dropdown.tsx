@@ -24,7 +24,7 @@ const Dropdown = ({ showChevron = true }: DropdownProps) => {
     <details ref={ref} className="relative inline-block">
       <summary
         aria-expanded={isOpen}
-        className="inline-flex items-center justify-center gap-x-2 rounded-md border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium transition hover:cursor-pointer hover:bg-white/15"
+        className="inline-flex items-center justify-center gap-x-2 rounded-md border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium hover:cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
         <Image alt="en" height={20} src={enIcon} unoptimized width={20} />

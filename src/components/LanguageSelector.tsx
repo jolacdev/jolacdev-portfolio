@@ -19,12 +19,6 @@ export const LanguageSelector = async ({ lng }: { lng: string }) => {
 
   return (
     <>
-      <button
-      // onClick={() => {
-      //   // eslint-disable-next-line no-console
-      //   console.log(isOpen);
-      // }}
-      ></button>
       <div>
         <Trans
           components={{ 1: <strong /> }}

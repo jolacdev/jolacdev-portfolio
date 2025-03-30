@@ -45,6 +45,10 @@ https://tailwindcss.com/docs/preflight
     color: var(--foreground);
   }
 
+  :focus-visible {
+    @apply outline-primary/75 outline-2;
+  }
+
   /* h1,
   h2,
   h3,
