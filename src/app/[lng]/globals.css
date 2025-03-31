@@ -20,18 +20,30 @@ https://tailwindcss.com/docs/preflight
 
 /* NOTE: Theme variables instruct Tailwind to create new utility classes that can be used in the HTML */
 @theme inline {
-  --color-background-950: #2a2d34;
-  --color-background-900: #373b43;
-  --color-background-800: #3e444e;
-  --color-background-700: #484f5c;
-  --color-background-600: #576172;
-  --color-background-500: #6d788a;
-  --color-background-400: #8b95a5;
-  --color-background-300: #b4bac5;
-  --color-background-200: #d7dae0;
-  --color-background-100: #edeef1;
-  --color-background-50: #f7f8f8;
-  /* --color-background: var(--background); */
+  --color-charcoal-50: #e8eaed;
+  --color-charcoal-100: #d2d4db;
+  --color-charcoal-200: #a2a7b4;
+  --color-charcoal-300: #757d8f;
+  --color-charcoal-400: #505563;
+  --color-charcoal-500: #2a2d34;
+  --color-charcoal-600: #22252a;
+  --color-charcoal-700: #191b1f;
+  --color-charcoal-800: #101114;
+  --color-charcoal-900: #090a0b;
+  --color-charcoal-950: #050506;
+
+  --color-coral-50: #fff6f0;
+  --color-coral-100: #ffe9db;
+  --color-coral-200: #ffd6bd;
+  --color-coral-300: #ffc099;
+  --color-coral-400: #ffaa75;
+  --color-coral-500: #ff9553;
+  --color-coral-600: #ff6b0f;
+  --color-coral-700: #cc4e00;
+  --color-coral-800: #8a3500;
+  --color-coral-900: #421900;
+  --color-coral-950: #240e00;
+
   --color-foreground: var(--foreground);
   --color-primary: var(--color-primary);
   --font-sans: var(--font-nova-mono), ui-sans-serif, system-ui, sans-serif;
@@ -46,7 +58,7 @@ https://tailwindcss.com/docs/preflight
   }
 
   :focus-visible {
-    @apply outline-primary/75 outline-2;
+    @apply outline-primary/75 outline-3;
   }
 
   /* h1,
