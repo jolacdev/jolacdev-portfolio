@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 import enIcon from './../../icons/en.svg';
+import Button from './Button';
 
 type DropdownProps = {
   showChevron?: boolean;
@@ -16,18 +17,18 @@ type DropdownProps = {
 const Dropdown = ({ showChevron = true }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const ref = useClickOutside<HTMLDetailsElement>(() => setIsOpen(false));
+  const ref = useClickOutside<HTMLDivElement>(() => setIsOpen(false));
 
   // TODO: Check aria attributes
 
   return (
-    <details ref={ref} className="relative inline-block">
-      <summary
+    <div ref={ref} className="relative inline-block">
+      <Button
         aria-expanded={isOpen}
-        className="inline-flex items-center justify-center gap-x-2 rounded-md border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium hover:cursor-pointer"
+        variant="outline"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <Image alt="en" height={20} src={enIcon} unoptimized width={20} />
+        {/* <Image alt="en" height={20} src={enIcon} unoptimized width={20} /> */}
         EN
         {showChevron && (
           <ChevronUp
@@ -36,15 +37,16 @@ const Dropdown = ({ showChevron = true }: DropdownProps) => {
             })}
           />
         )}
-      </summary>
+      </Button>
+      {/* TODO: Handle hover border */}
       {isOpen && (
-        <ul className="absolute left-0 mt-2 w-48 rounded-md bg-inherit">
+        <ul className="bg-charcoal-600 absolute left-[50%] mt-2 min-w-32 translate-x-[-50%] rounded-md">
           {SUPPORTED_LANGUAGES.map((language, index) => (
             <li key={language}>
               <button
                 className={`${
                   language === 'en' ? '' : 'hover:cursor-pointer'
-                } block w-full items-center rounded-md px-4 py-2 text-start text-sm hover:bg-gray-100`}
+                } block w-full items-center px-4 py-2 text-start text-sm hover:bg-gray-400`}
               >
                 <span className="truncate">{language}</span>
               </button>
@@ -52,7 +54,7 @@ const Dropdown = ({ showChevron = true }: DropdownProps) => {
           ))}
         </ul>
       )}
-    </details>
+    </div>
   );
 };
 

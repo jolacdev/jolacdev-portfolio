@@ -19,7 +19,6 @@ const Home = async ({ params }: { params: Promise<{ lng: string }> }) => {
         <Button variant="primary">Text</Button>
         <Button variant="secondary">Text</Button>
         <Button variant="outline">Text</Button>
-        <Button disabled variant="primary"></Button>
         <Button disabled variant="outline">
           Text
         </Button>
