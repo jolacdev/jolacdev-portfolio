@@ -1,30 +1,48 @@
 'use client';
+
+import { handleAccessibleKeyPress } from '@/utils/handleAccessibleKeyPress';
 import cx from 'classnames';
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import {
+  type ButtonHTMLAttributes,
+  type KeyboardEvent,
+  type ReactNode,
+  useState,
+} from 'react';
 
 type ButtonProps = {
   children: ReactNode;
+  variant: 'outline' | 'primary' | 'secondary';
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-// Order
-// 1. Layout & Positioning: container, flex, grid, absolute, relative
-// 2. Box Model: p-4, m-4, w-1/2, h-64
-// 3. Typography: text-center, text-lg, font-bold
-// 4. Visual Styles: bg-blue-500, text-white, shadow-lg
-// 5. State Variants: hover:bg-blue-700, focus:outline-none
+const Button = ({ children, className, variant, ...props }: ButtonProps) => {
+  const [isActive, setIsActive] = useState(false);
 
-const Button = ({ children, className, ...props }: ButtonProps) => {
-  console.log('');
+  const variantStyles: Record<ButtonProps['variant'], string> = {
+    outline: 'bg-transparent',
+    primary:
+      'bg-coral-500 border-coral-400 hover:not-disabled:bg-coral-400 focus:bg-coral-400 text-charcoal-700',
+    secondary:
+      'bg-charcoal-600 border-charcoal-500 hover:not-disabled:bg-charcoal-500 focus:bg-charcoal-500',
+  };
+
+  const handleKeyPress = (e: KeyboardEvent<HTMLButtonElement>) => {
+    const isKeyDown = e.type === 'keydown';
+    handleAccessibleKeyPress(e, () => setIsActive(isKeyDown));
+  };
+
   return (
     <button
       className={cx(
-        'bg-background-950 border-background-800 m-4 inline-flex h-9 items-center justify-center rounded-sm border-1 px-4',
-        'hover:not-disabled:cursor-pointer hover:not-disabled:brightness-105',
-        'focus:brightness-105',
-        'active:not-disabled:brightness-110',
+        'm-4 inline-flex h-9 items-center justify-center rounded-sm border-1 px-4 transition-all duration-100',
+        'hover:not-disabled:cursor-pointer',
+        'active:not-disabled:scale-95',
         'disabled:opacity-50 disabled:hover:cursor-default',
+        { 'not-disabled:scale-95': isActive },
+        variantStyles[variant],
         className,
       )}
+      onKeyDown={handleKeyPress}
+      onKeyUp={handleKeyPress}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     >
