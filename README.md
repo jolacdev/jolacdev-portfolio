@@ -12,10 +12,16 @@
 - **Guides**: https://www.robinwieruch.de/
 - **Components**: https://ariakit.org/
 - **HTML5 Tailwind Components**: https://daisyui.com/components/dropdown/
+- **Tailwind more readable**: https://tailkits.com/blog/how-to-make-tailwind-more-readable/
 
 ### SVG Components
 
 - https://opensourcesvgicons.com
+
+### Tailwind
+
+- **Color Palette**: https://www.tints.dev/
+- https://stackoverflow.com/questions/79540647/in-tailwind-v4-how-to-define-custom-colors-and-use-them-in-dark-light-mode-wit
 
 ## Setup
 
