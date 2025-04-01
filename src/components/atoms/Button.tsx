@@ -33,7 +33,7 @@ const Button = ({ children, className, variant, ...props }: ButtonProps) => {
   return (
     <button
       className={cx(
-        'inline-flex h-9 items-center justify-center gap-x-2 rounded-sm border-1 px-4 transition-all duration-100',
+        'inline-flex h-9 items-center justify-center gap-x-2 rounded-sm border-1 px-4 align-middle transition-all duration-100',
         'hover:not-disabled:cursor-pointer',
         'active:not-disabled:scale-95',
         'disabled:opacity-50 disabled:hover:cursor-default',
