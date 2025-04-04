@@ -40,8 +40,10 @@ const RootLayout = async ({
   return (
     <html dir={dir(lng)} lang={lng}>
       {/* NOTE: Tailwind utility class `antialiased` for smoothing font rendering. */}
-      <body className={`${poppins.variable} ${novaMono.variable} antialiased`}>
-        <div className="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+      <body
+        className={`antialiased ${poppins.variable} ${novaMono.variable} dark:bg-charcoal-600 text-charcoal-700 bg-white dark:text-white`}
+      >
+        {/* <div className="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div> */}
         {children}
       </body>
     </html>

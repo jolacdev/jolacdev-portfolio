@@ -12,7 +12,7 @@ const Home = async ({ params }: { params: Promise<{ lng: string }> }) => {
   });
 
   return (
-    <div className="mx-auto max-w-5xl">
+    <div className="mx-auto max-w-4xl">
       <main>
         {/* TODO: Remove */}
         <Heading type="h1">{t('greeting')}</Heading>

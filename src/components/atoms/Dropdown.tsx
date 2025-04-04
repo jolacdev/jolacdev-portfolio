@@ -40,13 +40,15 @@ const Dropdown = ({ showChevron = true }: DropdownProps) => {
       </Button>
       {/* TODO: Handle hover border */}
       {isOpen && (
-        <ul className="bg-charcoal-600 absolute left-[50%] mt-2 min-w-32 translate-x-[-50%] rounded-md">
+        <ul className="dark:bg-charcoal-600 absolute left-[50%] mt-2 min-w-32 translate-x-[-50%] overflow-hidden rounded-md bg-white shadow-sm">
           {SUPPORTED_LANGUAGES.map((language, index) => (
             <li key={language}>
               <button
                 className={`${
-                  language === 'en' ? '' : 'hover:cursor-pointer'
-                } block w-full items-center px-4 py-2 text-start text-sm hover:bg-gray-400`}
+                  language === 'en'
+                    ? 'text-coral-400'
+                    : 'dark:hover:bg-charcoal-400 hover:bg-charcoal-100/10'
+                } block w-full px-4 py-2 text-start text-sm`}
               >
                 <span className="truncate">{language}</span>
               </button>

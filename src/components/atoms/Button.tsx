@@ -22,7 +22,7 @@ const Button = ({ children, className, variant, ...props }: ButtonProps) => {
     primary:
       'bg-coral-500 border-coral-400 hover:not-disabled:bg-coral-400 focus:bg-coral-400 text-charcoal-700',
     secondary:
-      'bg-charcoal-600 border-charcoal-500 hover:not-disabled:bg-charcoal-500 focus:bg-charcoal-500',
+      'bg-charcoal-500 border-charcoal-400 hover:not-disabled:bg-charcoal-400 focus:bg-charcoal-400 text-white',
   };
 
   const handleKeyPress = (e: KeyboardEvent<HTMLButtonElement>) => {

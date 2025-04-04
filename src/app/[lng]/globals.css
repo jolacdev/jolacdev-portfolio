@@ -5,26 +5,25 @@ NOTE: Tailwind import comes with preflight styles designed to smooth over cross-
 https://tailwindcss.com/docs/preflight
 */
 
-:root {
-  --background: #ffffff;
-  --foreground: #2a2d34;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #2a2d34;
-    --foreground: #ededed;
-    --color-primary: #ffa770;
-  }
-}
-
 /* NOTE: Theme variables instruct Tailwind to create new utility classes that can be used in the HTML */
 @theme inline {
-  --color-charcoal-50: #e8eaed;
+  /* --color-charcoal-50: #e8eaed;
   --color-charcoal-100: #d2d4db;
   --color-charcoal-200: #a2a7b4;
   --color-charcoal-300: #757d8f;
   --color-charcoal-400: #505563;
+  --color-charcoal-500: #2a2d34;
+  --color-charcoal-600: #22252a;
+  --color-charcoal-700: #191b1f;
+  --color-charcoal-800: #101114;
+  --color-charcoal-900: #090a0b;
+  --color-charcoal-950: #050506; */
+
+  --color-charcoal-50: #6b7385;
+  --color-charcoal-100: #646b7c;
+  --color-charcoal-200: #545a68;
+  --color-charcoal-300: #474c57;
+  --color-charcoal-400: #393d47;
   --color-charcoal-500: #2a2d34;
   --color-charcoal-600: #22252a;
   --color-charcoal-700: #191b1f;
@@ -44,8 +43,6 @@ https://tailwindcss.com/docs/preflight
   --color-coral-900: #421900;
   --color-coral-950: #240e00;
 
-  --color-foreground: var(--foreground);
-  --color-primary: var(--color-primary);
   --font-sans: var(--font-nova-mono), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-nova-mono), ui-monospace;
 }
@@ -53,26 +50,9 @@ https://tailwindcss.com/docs/preflight
 @layer base {
   body {
     font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
-    background: var(--background);
-    color: var(--foreground);
   }
 
   :focus-visible {
-    @apply outline-primary/75 outline-3;
+    @apply outline-coral-500/75 outline-3;
   }
-
-  /* h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: var(--font-nova-mono), ui-monospace;
-  } */
 }
-
-/* body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-poppins), ui-sans-serif;
-} */
