@@ -10,6 +10,9 @@ const Home = async ({ params }: { params: Promise<{ lng: string }> }) => {
   const { t } = await createTranslation(lng, {
     keyPrefix: 'home',
   });
+  const { t: tTemporal } = await createTranslation(lng, {
+    keyPrefix: 'temporal',
+  });
 
   return (
     <div className="mx-auto max-w-4xl">
@@ -25,6 +28,7 @@ const Home = async ({ params }: { params: Promise<{ lng: string }> }) => {
         <Dropdown />
         <p className="mb-2">{t('intro')}</p>
         <p>{t('specialization')}</p>
+        <p>{tTemporal('loremIpsum')}</p>
         <input className="accent-primary" type="checkbox" />
       </main>
       <footer>
