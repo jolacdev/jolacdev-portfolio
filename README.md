@@ -23,6 +23,10 @@
 - **Color Palette**: https://www.tints.dev/
 - https://stackoverflow.com/questions/79540647/in-tailwind-v4-how-to-define-custom-colors-and-use-them-in-dark-light-mode-wit
 
+### Animations
+
+- **React Motion**: https://motion.dev/docs/react-motion-component
+
 ## Setup
 
 ## Setup Workspace Settings

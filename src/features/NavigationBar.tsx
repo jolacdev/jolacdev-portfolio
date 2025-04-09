@@ -1,3 +1,4 @@
+import SlideUpZoomWrapper from '@/components/animations/SlideUpZoomWrapper';
 import Button from '@/components/atoms/Button';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
@@ -9,7 +10,10 @@ const NavigationBar = () => {
   console.log('nav');
 
   return (
-    <nav className="bg-charcoal-800/75 bottom-5, fixed left-[50%] flex translate-x-[-50%] rounded-lg backdrop-blur-xs select-none md:bottom-10">
+    <SlideUpZoomWrapper
+      className="bg-charcoal-800/75 fixed bottom-5 left-[50%] flex translate-x-[-50%] rounded-lg backdrop-blur-xs select-none md:bottom-10"
+      tag="nav"
+    >
       <Button className="m-4" variant="primary">
         Test
       </Button>{' '}
@@ -19,7 +23,7 @@ const NavigationBar = () => {
       <Button className="m-4" variant="primary">
         Test
       </Button>
-    </nav>
+    </SlideUpZoomWrapper>
   );
 };
 
