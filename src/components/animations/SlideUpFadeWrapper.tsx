@@ -4,33 +4,38 @@ import { motion } from 'motion/react';
 import { ReactNode } from 'react';
 
 const variants = {
-  exit: { scale: 0, y: 0 },
-  initial: { scale: 0, y: 100 },
+  initial: { opacity: 0, y: 200 },
   animate: {
-    scale: 1,
+    opacity: 1,
     y: 0,
+    transition: {
+      duration: 0.3,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: 200,
     transition: {
       duration: 0.3,
     },
   },
 };
 
-type SlideUpZoomWrapperProps = {
+type SlideUpFadeWrapperProps = {
   children: ReactNode;
   className?: string;
   tag?: 'div' | 'nav';
 };
 
-const SlideUpZoomWrapper = ({
+const SlideUpFadeWrapper = ({
   children,
   className = '',
   tag = 'div',
-}: SlideUpZoomWrapperProps) => {
+}: SlideUpFadeWrapperProps) => {
   const Tag = motion[tag];
 
   return (
     <Tag
-      key="box"
       animate="animate"
       className={className}
       exit="exit"
@@ -42,4 +47,4 @@ const SlideUpZoomWrapper = ({
   );
 };
 
-export default SlideUpZoomWrapper;
+export default SlideUpFadeWrapper;
