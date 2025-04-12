@@ -16,7 +16,7 @@
 
 ### SVG Components
 
-- https://opensourcesvgicons.com
+- [Open Source SVG Icons - Material Design Icons](https://opensourcesvgicons.com/mdi)
 
 ### Tailwind
 
