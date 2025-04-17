@@ -2,7 +2,7 @@ import Button from '@/components/atoms/Button';
 import Dropdown from '@/components/atoms/Dropdown';
 import Heading from '@/components/atoms/Heading';
 import { LanguageSelector } from '@/components/LanguageSelector';
-import Section from '@/components/molecules/Section';
+import Section from '@/components/organisms/Section';
 
 import { createTranslation } from '../i18n';
 
