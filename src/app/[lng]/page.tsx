@@ -2,6 +2,7 @@ import Button from '@/components/atoms/Button';
 import Dropdown from '@/components/atoms/Dropdown';
 import Heading from '@/components/atoms/Heading';
 import { LanguageSelector } from '@/components/LanguageSelector';
+import Timeline from '@/components/molecules/Timeline';
 import Section from '@/components/organisms/Section';
 
 import { createTranslation } from '../i18n';
@@ -22,6 +23,9 @@ const Home = async ({ params }: { params: Promise<{ lng: string }> }) => {
       </header>
       <main>
         {/* TODO: Remove */}
+        <Section hash="work" title="Work">
+          <Timeline />
+        </Section>
         <Section hash="projects" title={t('sections.projects.title')}>
           <LanguageSelector lng={lng} />
           <Button variant="primary">Text</Button>
