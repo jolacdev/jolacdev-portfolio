@@ -1,6 +1,6 @@
 import { HTMLProps, ReactNode } from 'react';
 
-type HeadingProps = {
+export type HeadingProps = {
   children: ReactNode;
   type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 } & HTMLProps<HTMLHeadingElement>;
