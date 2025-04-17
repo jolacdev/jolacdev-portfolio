@@ -2,6 +2,11 @@
   "home": {
     "greeting": "Hola 👋, Soy Jose L.",
     "intro": "Soy un desarrollador web con pasión por crear webs modernas, adaptables e intuitivas.",
-    "specialization": "Me especializo en React, Next.js y JavaScript y disfruto de crear ideas mediante un código claro y eficiente."
+    "specialization": "Me especializo en React, Next.js y JavaScript y disfruto de crear ideas mediante un código claro y eficiente.",
+    "sections": {
+      "projects": {
+        "title": "Proyectos"
+      }
+    }
   }
 }

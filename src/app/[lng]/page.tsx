@@ -17,25 +17,26 @@ const Home = async ({ params }: { params: Promise<{ lng: string }> }) => {
 
   return (
     <div className="mx-auto max-w-4xl">
+      <header>
+        <Heading type="h1">{t('greeting')}</Heading>
+      </header>
       <main>
         {/* TODO: Remove */}
-        <Heading type="h1">{t('greeting')}</Heading>
-        <Section hash="projects" title="Projects" />
-        <Button variant="primary">Text</Button>
-        <Button variant="secondary">Text</Button>
-        <Button variant="outline">Text</Button>
-        <Button disabled variant="outline">
-          Text
-        </Button>
-        <Dropdown />
-        <p className="mb-2">{t('intro')}</p>
-        <p>{t('specialization')}</p>
-        <p>{tTemporal('loremIpsum')}</p>
-        <input className="accent-primary" type="checkbox" />
+        <Section hash="projects" title={t('sections.projects.title')}>
+          <LanguageSelector lng={lng} />
+          <Button variant="primary">Text</Button>
+          <Button variant="secondary">Text</Button>
+          <Button variant="outline">Text</Button>
+          <Button disabled variant="outline">
+            Text
+          </Button>
+          <Dropdown />
+          <p className="mb-2">{t('intro')}</p>
+          <p>{t('specialization')}</p>
+          <p>{tTemporal('loremIpsum')}</p>
+          <input className="accent-primary" type="checkbox" />
+        </Section>
       </main>
-      <footer>
-        <LanguageSelector lng={lng} />
-      </footer>
     </div>
   );
 };
