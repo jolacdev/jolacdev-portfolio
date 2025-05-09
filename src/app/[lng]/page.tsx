@@ -4,8 +4,10 @@ import Heading from '@/components/atoms/Heading';
 import { LanguageSelector } from '@/components/LanguageSelector';
 import Timeline from '@/components/molecules/Timeline';
 import Section from '@/components/organisms/Section';
+import { label } from 'motion/react-client';
 
 import { createTranslation } from '../i18n';
+import { SUPPORTED_LANGUAGES } from '../i18n/settings';
 
 const Home = async ({ params }: { params: Promise<{ lng: string }> }) => {
   const { lng } = await params;
@@ -34,7 +36,12 @@ const Home = async ({ params }: { params: Promise<{ lng: string }> }) => {
           <Button disabled variant="outline">
             Text
           </Button>
-          <Dropdown />
+          <Dropdown
+            options={SUPPORTED_LANGUAGES.map((supportedLanguage) => ({
+              label: supportedLanguage.toUpperCase(),
+              value: supportedLanguage,
+            }))}
+          />
           <p className="mb-2">{t('intro')}</p>
           <p>{t('specialization')}</p>
           <p>{tTemporal('loremIpsum')}</p>
