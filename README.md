@@ -1,5 +1,32 @@
 # Jose L. Portfolio
 
+## Ideas
+
+- https://www.darkmodedesign.com/?2bf851fe_page=7
+- https://www.hyresearch.com/
+
+## Resources
+
+### React
+
+- **Guides**: https://www.robinwieruch.de/
+- **Components**: https://ariakit.org/
+- **HTML5 Tailwind Components**: https://daisyui.com/components/dropdown/
+- **Tailwind more readable**: https://tailkits.com/blog/how-to-make-tailwind-more-readable/
+
+### SVG Components
+
+- [Open Source SVG Icons - Material Design Icons](https://opensourcesvgicons.com/mdi)
+
+### Tailwind
+
+- **Color Palette**: https://www.tints.dev/
+- https://stackoverflow.com/questions/79540647/in-tailwind-v4-how-to-define-custom-colors-and-use-them-in-dark-light-mode-wit
+
+### Animations
+
+- **React Motion**: https://motion.dev/docs/react-motion-component
+
 ## Setup
 
 ## Setup Workspace Settings
