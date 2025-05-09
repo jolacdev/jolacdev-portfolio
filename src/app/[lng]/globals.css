@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+
+/*
+NOTE: Tailwind import comes with preflight styles designed to smooth over cross-browser inconsistencies 
+https://tailwindcss.com/docs/preflight
+*/
+
+/* NOTE: Theme variables instruct Tailwind to create new utility classes that can be used in the HTML */
+@theme inline {
+  /* --color-charcoal-50: #e8eaed;
+  --color-charcoal-100: #d2d4db;
+  --color-charcoal-200: #a2a7b4;
+  --color-charcoal-300: #757d8f;
+  --color-charcoal-400: #505563;
+  --color-charcoal-500: #2a2d34;
+  --color-charcoal-600: #22252a;
+  --color-charcoal-700: #191b1f;
+  --color-charcoal-800: #101114;
+  --color-charcoal-900: #090a0b;
+  --color-charcoal-950: #050506; */
+
+  --color-charcoal-50: #6b7385;
+  --color-charcoal-100: #646b7c;
+  --color-charcoal-200: #545a68;
+  --color-charcoal-300: #474c57;
+  --color-charcoal-400: #393d47;
+  --color-charcoal-500: #2a2d34;
+  --color-charcoal-600: #22252a;
+  --color-charcoal-700: #191b1f;
+  --color-charcoal-800: #101114;
+  --color-charcoal-900: #090a0b;
+  --color-charcoal-950: #050506;
+
+  --color-coral-50: #fff6f0;
+  --color-coral-100: #ffe9db;
+  --color-coral-200: #ffd6bd;
+  --color-coral-300: #ffc099;
+  --color-coral-400: #ffaa75;
+  --color-coral-500: #ff9553;
+  --color-coral-600: #ff6b0f;
+  --color-coral-700: #cc4e00;
+  --color-coral-800: #8a3500;
+  --color-coral-900: #421900;
+  --color-coral-950: #240e00;
+
+  --font-sans: var(--font-nova-mono), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-nova-mono), ui-monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  :focus-visible {
+    @apply outline-coral-500/75 outline-3;
+  }
+}
